@@ -1,0 +1,33 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+LSM303	KEYWORD1
+Serial_PC	KEYWORD1
+Serial_GPS	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+init_a	KEYWORD2
+init_m	KEYWORD2
+update_a	KEYWORD2
+update_m	KEYWORD2
+ina226_init	KEYWORD2
+ina226_voltage	KEYWORD2
+ina226_current	KEYWORD2
+
+Motor	KEYWORD2
+Nichrome	KEYWORD2
+	
+
+INA226	LITERAL1
+MOTOR_LF	LITERAL1
+MOTOR_LR	LITERAL1
+MOTOR_RF	LITERAL1
+MOTOR_RR	LITERAL1
+NICHROME	LITERAL1
+flightPin	LITERAL1
+LSM303AGR_M	LITERAL1
+LSM303AGR_A	LITERAL1
+LED0	LITERAL1
+LED1	LITERAL1
