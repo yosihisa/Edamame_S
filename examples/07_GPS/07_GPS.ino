@@ -12,12 +12,12 @@ void setup() {
 	
 }
 void loop() {
-	long e = get_gps(&gps_data,2000);
+	get_gps(&gps_data,500);
 
 
 	String str = "";
 	
-	str.concat(e);
+	str.concat(gps_data.mode);
 	str.concat(" ");
 	str.concat(gps_data.hh);
 	str.concat(":");

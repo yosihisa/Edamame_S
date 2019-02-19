@@ -26,25 +26,38 @@ struct gps {
 	long longitude;
 	uint8_t hh, mm, ss;
 	uint16_t ms;
+
+	int mode = 0;
+
+	float arg = 0;
+	unsigned long dist = 0;
 };
 
 struct control_data {
-	File logFile;
 	String log_path = "";
-	long log_num;
+	long log_num = 0;
+	int mode = 0;
 
+	long voltage = 0;
+	long current = 0;
 
 	struct gps gps_data;
-	uint8_t gps_state;
 	struct xyza LSM303_data;
+
+	float arg = 0;
+
+	int  motor_L = 0, motor_R = 0, nichrome = 0;
+
 };
 
 void LSM303_init_m();
 void LSM303_update_m(struct xyza *data);
 
 void set_gpsHiSpeed();
-long get_gps(struct gps *gps_data ,long t);
+long get_gps(struct gps *gps_data , unsigned long t);
+void calc_gps(struct gps *gps_data, long latitude, long longitude);
 
-
+void print_data(control_data *data);
+void write_data(control_data *data);
 
 #endif

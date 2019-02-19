@@ -8,7 +8,7 @@ void setup() {
   Wire.begin();
 
   Serial_PC.begin(115200);
-  Serial_PC.print("Hello SOMESAT\n");
+  Serial_PC.print("Hello sensor test\n");
 
   ina226_init();
   LSM303_init_m();
