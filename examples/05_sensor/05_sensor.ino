@@ -7,7 +7,7 @@ void setup() {
 
   Wire.begin();
 
-  Serial_PC.begin(9600);
+  Serial_PC.begin(115200);
   Serial_PC.print("Hello SOMESAT\n");
 
   ina226_init();
@@ -25,9 +25,10 @@ void loop() {
   
   Serial_PC.print("   ");
   
-  Serial_PC.print(ina226_voltage(), 3);
-  Serial_PC.print("[V]");
-  Serial_PC.print(ina226_current(), 3);
-  Serial_PC.println("[A]");
+  Serial_PC.print(ina226_voltage());
+  Serial_PC.print("[mV] ");
+  Serial_PC.print(ina226_current());
+  Serial_PC.println("[mA]");
+  Motor(230, 230);
   delay(500);
 }

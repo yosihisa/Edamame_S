@@ -17,7 +17,7 @@
 void Motor(int ,int);
 void Nichrome(int);
 void ina226_init();
-float ina226_voltage();
-float ina226_current();
+long ina226_voltage();
+long ina226_current();
 
 #endif

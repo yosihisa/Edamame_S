@@ -32,14 +32,15 @@ short INA226_read(byte reg){
 
 void ina226_init(){
     INA226_write(INA226_CONFIG, 0x45ff);
+	INA226_write(INA226_CALIB, 512);
 }
 
-float ina226_voltage(){
-    return (float)0.00125*INA226_read(INA226_BUSV);
+long ina226_voltage(){
+	return 1.25*INA226_read(INA226_BUSV);
 }
 
-float ina226_current(){
-    return (float)0.00025*INA226_read(INA226_CURRENT);
+long ina226_current(){
+    return INA226_read(INA226_CURRENT);
 }
 
 void Motor(int L ,int R){
