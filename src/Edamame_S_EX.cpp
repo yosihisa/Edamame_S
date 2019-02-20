@@ -54,6 +54,9 @@ void set_pinMode() {
 	pinMode(MOTOR_RF, OUTPUT);
 	pinMode(MOTOR_RR, OUTPUT);
 	pinMode(FLIGHT_PIN, INPUT);
+
+	analogWrite(NICHROME, 0);
+
 }
 void motor(int L ,int R){
     if(L>=0){

@@ -37,6 +37,7 @@ struct control_data {
 	String log_path = "";
 	long log_num = 0;
 	int mode = 0;
+	int flightPin = 0;
 
 	long voltage = 0;
 	long current = 0;

@@ -31,7 +31,7 @@ void loop() {
 
 	switch (cansat.mode) {
 	case 0: //キャリブレーション
-		calibration(&cansat, cnt);
+		calibration(&cansat, 20, cnt);
 		if (cansat.mode != 0)cnt = 0;
 		break;
 	case 1: //北を向く
@@ -78,8 +78,8 @@ void apply(control_data *data) {
 	nichrome(data->nichrome);
 }
 
-void calibration(control_data *data, unsigned long cnt) {
-	const int n = 20;
+void calibration(control_data *data, const int n , unsigned long cnt) {
+	
 	static long x_max, y_max;
 	static long x_min, y_min;
 
