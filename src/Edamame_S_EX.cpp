@@ -1,4 +1,5 @@
 #include "Edamame_S_EX.h"
+#include "Edamame_S.h"
 
 const byte INA226_CONFIG = 0x00;
 const byte INA226_SHUNTV = 0x01;
@@ -43,7 +44,18 @@ long ina226_current(){
     return INA226_read(INA226_CURRENT);
 }
 
-void Motor(int L ,int R){
+void set_pinMode() {
+	pinMode(LED0, OUTPUT);
+	pinMode(LED1, OUTPUT);
+
+	pinMode(NICHROME, OUTPUT);
+	pinMode(MOTOR_LF, OUTPUT);
+	pinMode(MOTOR_LR, OUTPUT);
+	pinMode(MOTOR_RF, OUTPUT);
+	pinMode(MOTOR_RR, OUTPUT);
+	pinMode(FLIGHT_PIN, INPUT);
+}
+void motor(int L ,int R){
     if(L>=0){
         analogWrite(MOTOR_LF, L);
         analogWrite(MOTOR_LR, 0);
@@ -61,6 +73,6 @@ void Motor(int L ,int R){
     }
 }
 
-void Nichrome(int power){
+void nichrome(int power){
     analogWrite(NICHROME,power);
 }

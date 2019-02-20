@@ -54,7 +54,6 @@ long split_GPGGA(char msg[], char buff) {
 	}
 }*/
 
-//GPSから1文字受信
 char get_gps_1() {
 	while (1) {
 		long data = Serial_GPS.read();
@@ -65,7 +64,6 @@ char get_gps_1() {
 	}
 }
 
-//GPS座標取得
 long get_gps(struct gps *gps_data, unsigned long t) {
 	gps_data->latitude = 0;
 	gps_data->longitude = 0;
@@ -78,20 +76,17 @@ long get_gps(struct gps *gps_data, unsigned long t) {
 	unsigned long time = millis();
 	while (millis()-time < t) {
 
-		//GPSのセンテンスの始まりを探してデータタイプの種類を代入
 		c = get_gps_1();
 		if (c == '$') {
 			for (long i = 0; i < 6; i++) {
 				c = get_gps_1();
 				gps_msg[i] = c;
 			}
-			//時刻・座標の取得計算
 			if (strncmp(gps_msg, "GPGGA", 5) == 0) {
 				for (long i = 0; c != '\n'; i++) {
 					c = get_gps_1();
 					gps_msg[i] = c;
 
-					//1行取得し終えたら
 					if (c == '\n') {
 						gps_data->hh = 10 * (gps_msg[0] - 48) + (gps_msg[1] - 48);
 						gps_data->mm = 10 * (gps_msg[2] - 48) + (gps_msg[3] - 48);
@@ -100,7 +95,6 @@ long get_gps(struct gps *gps_data, unsigned long t) {
 						gps_data->ms = 100 * (gps_msg[7] - 48) + 10*(gps_msg[8] - 48)+(gps_msg[9] - 48);
 
 						
-						//測位できていたら
 						if (i > 40) {
 							long n;
 							dd = 0;
@@ -142,7 +136,6 @@ long get_gps(struct gps *gps_data, unsigned long t) {
 								}
 							}
 						}
-						//測位できていなかったら
 						else {
 							gps_data->mode = 0;
 						}
