@@ -161,7 +161,7 @@ long get_gps(struct gps *gps_data, unsigned long t) {
 void calc_gps(struct gps *gps_data, long latitude, long longitude) {
 	
 	long dx = latitude - gps_data->latitude;	//南北　北が正
-	long dy = gps_data->longitude - longitude;	//東西　東が正
+	long dy = longitude - gps_data->longitude;	//東西　東が正
 	gps_data->arg = atan2(dy, dx);
 	gps_data->dist = dx * dx + dy * dy;
 }
