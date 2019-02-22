@@ -1,6 +1,3 @@
-.metadata/
-*/Debug
-*/Release
 */.vscode/
 .vs/
 *.bak
