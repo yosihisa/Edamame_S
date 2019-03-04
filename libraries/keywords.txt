@@ -1,33 +1,47 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-LSM303	KEYWORD1
 Serial_PC	KEYWORD1
 Serial_GPS	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-init_a	KEYWORD2
-init_m	KEYWORD2
-update_a	KEYWORD2
-update_m	KEYWORD2
+
+# CORE
+LSM303_init_m	KEYWORD2
+LSM303_update_m	KEYWORD2
+
+set_gpsHiSpeed	KEYWORD2
+get_gps	KEYWORD2
+calc_gps	KEYWORD2
+
+# EX
+set_pinMode	KEYWORD2
+motor	KEYWORD2
 ina226_init	KEYWORD2
 ina226_voltage	KEYWORD2
 ina226_current	KEYWORD2
+print_data	KEYWORD2
+write_data	KEYWORD2
 
-Motor	KEYWORD2
-Nichrome	KEYWORD2
-	
 
-INA226	LITERAL1
+
+INA226_ADDR	LITERAL1
 MOTOR_LF	LITERAL1
 MOTOR_LR	LITERAL1
 MOTOR_RF	LITERAL1
 MOTOR_RR	LITERAL1
 NICHROME	LITERAL1
-flightPin	LITERAL1
+FLIGHT_PIN	LITERAL1
 LSM303AGR_M	LITERAL1
 LSM303AGR_A	LITERAL1
 LED0	LITERAL1
 LED1	LITERAL1
+SD_CS	LITERAL1
+
+
+
+control_data	DATA_TYPE
+xyza	DATA_TYPE
+gps	DATA_TYPE
