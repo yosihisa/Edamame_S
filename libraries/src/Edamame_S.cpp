@@ -42,17 +42,11 @@ void LSM303_update_m(struct xyza *data) {
 }
 
 void set_gpsHiSpeed() {
-	Serial_GPS.print("$PMTK220,100*2F\r\n");
-	delay(100);
 	Serial_GPS.print("$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29\r\n");
 	delay(100);
+	Serial_GPS.print("$PMTK220,100*2F\r\n");
+	delay(100);
 }
-/*
-long split_GPGGA(char msg[], char buff) {
-	for (unsigned int i = 0; msg[i] != c; i++) {
-
-	}
-}*/
 
 char get_gps_1() {
 	while (1) {
